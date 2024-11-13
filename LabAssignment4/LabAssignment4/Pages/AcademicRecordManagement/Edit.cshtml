@@ -1,0 +1,33 @@
+@page
+@model LabAssignment4.Pages.AcademicRecordManagement.EditModel
+
+@{
+    ViewData["Title"] = "Edit Academic Record";
+}
+
+<h1>Edit Academic Record</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="StudentId">Student ID</label>
+        <input type="text" class="form-control" id="StudentId" value="@Model.AcademicRecord.Student.Id" disabled />
+    </div>
+    <div class="form-group">
+        <label for="StudentName">Student Name</label>
+        <input type="text" class="form-control" id="StudentName" value="@Model.AcademicRecord.Student.Name" disabled />
+    </div>
+    <div class="form-group">
+        <label for="CourseCode">Course Code</label>
+        <input type="text" class="form-control" id="CourseCode" value="@Model.AcademicRecord.CourseCodeNavigation.Code" disabled />
+    </div>
+    <div class="form-group">
+        <label for="CourseTitle">Course Title</label>
+        <input type="text" class="form-control" id="CourseTitle" value="@Model.AcademicRecord.CourseCodeNavigation.Title" disabled />
+    </div>
+    <div class="form-group">
+        <label for="Grade">Grade</label>
+        <input type="number" class="form-control" id="Grade" name="Grade" value="@Model.AcademicRecord.Grade" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

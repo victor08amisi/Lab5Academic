@@ -1,0 +1,56 @@
+@page
+@model LabAssignment4.Pages.AcademicRecordManagement.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th id="courseTitle" style="color: blue; cursor: pointer">
+            Course Title
+        </th>
+        <th id="studentName" style="color: blue; cursor: pointer">
+            Student Name
+        </th>
+        <th id="grade" style="color: blue; cursor: pointer">
+            Grade
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.AcademicRecord) {
+        <tr>
+            <td>@item.CourseCode - @item.CourseCodeNavigation.Title</td>
+            <td>@item.StudentId - @item.Student.Name</td>
+            <td>@item.Grade</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@item.StudentId">Edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        document.getElementById("courseTitle").addEventListener("click", function () {
+            courseSortForm.submit();
+        });
+
+        document.getElementById("studentName").addEventListener("click", function () {
+            nameSortForm.submit();
+        });
+
+        document.getElementById("grade").addEventListener("click", function () {
+            gradeSortForm.submit();
+        });
+    </script>
+}
